@@ -50,7 +50,7 @@ There is also a `GameTest` in the test folder provided for you, and hopefully it
 
 > ⚠️ **Please refrain from tempering with `GameTest` as changing it will disqualify you from being considered for this position!**
 
-> ⚠️ Please add `songford@me.com` as collabator. 
+> ⚠️ Please add `sap_cic_hiring@sap.com` as collabator. 
 
 ## Caveats
 
