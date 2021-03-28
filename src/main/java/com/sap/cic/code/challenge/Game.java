@@ -11,7 +11,7 @@ public class Game {
     }
 
     private Game() {
-        this.cardList = new ArrayList<>();
+        cardList = new ArrayList<>();
     }
 
     public void add(List<Card> cards) {
@@ -20,6 +20,10 @@ public class Game {
 
     //EDIT ME PLEASE!
     public Hand showHand() throws GameException {
-        return Hand.UNKNOWN;
+        if (cardList == null || cardList.stream().distinct().count() != 7) {
+            throw new GameException();
+        }
+
+        return new HandEvaluator(cardList).getType();
     }
 }
