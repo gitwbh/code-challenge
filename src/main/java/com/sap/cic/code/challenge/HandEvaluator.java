@@ -10,9 +10,30 @@ public class HandEvaluator {
 
     private static final int MAX_NO_OF_PAIRS = 2;
 
-    private Hand type;
+    private final int[] pairs = new int[MAX_NO_OF_PAIRS];
 
     private final List<Card> cards;
+
+    private int noOfPairs;
+
+    private int noOfTriples;
+
+    private int flushSuit = -1;
+
+    private int flushRank = -1;
+
+    private int straightRank = -1;
+
+    private int tripleRank = -1;
+
+    private int quadRank = -1;
+
+    private Hand type;
+
+    /**
+     * Whether we have a Straight with a wheeling Ace.
+     */
+    private boolean wheelingAce;
 
     /**
      * The rank distribution (number of cards for each rank).
@@ -23,33 +44,6 @@ public class HandEvaluator {
      * The suit distribution (number of cards for each suit).
      */
     private final int[] suitDist = new int[Card.Suit.values().length];
-
-    private int noOfPairs;
-
-    private int noOfTriples;
-
-    private final int[] pairs = new int[MAX_NO_OF_PAIRS];
-
-    private int flushSuit = -1;
-
-    private int flushRank = -1;
-
-    private int straightRank = -1;
-
-    /**
-     * Whether we have a Straight with a wheeling Ace.
-     */
-    private boolean wheelingAce;
-
-    /**
-     * The rank of the Three-of-a-Kind.
-     */
-    private int tripleRank = -1;
-
-    /**
-     * The rank of the Four-of-a-Kind.
-     */
-    private int quadRank = -1;
 
     public HandEvaluator(List<Card> cardList) {
         cards = cardList.stream()
