@@ -177,9 +177,9 @@ public class HandEvaluator {
                 }
             }
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     private boolean isTwoPairs() {
@@ -196,9 +196,9 @@ public class HandEvaluator {
                 }
             }
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     private boolean isThreeOfAKind() {
@@ -216,18 +216,18 @@ public class HandEvaluator {
                 }
             }
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     private boolean isStraight() {
         if (straightRank != -1) {
             type = Hand.STRAIGHT;
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     private boolean isFlush() {
@@ -247,18 +247,18 @@ public class HandEvaluator {
                 }
             }
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     private boolean isFullHouse() {
         if (tripleRank != -1 && (noOfPairs > 0 || noOfTriples > 1)) {
             type = Hand.FULL_HOUSE;
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     private boolean isFourOfAKind() {
@@ -272,9 +272,9 @@ public class HandEvaluator {
                 }
             }
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     private boolean isStraightFlush() {
@@ -320,13 +320,7 @@ public class HandEvaluator {
             }
 
             if (inStraight >= 5 && inFlush >= 5) {
-                if (straightRank == Card.Kind.ACE.ordinal()) {
-                    // Royal Flush.
-                    type = Hand.ROYAL_FLUSH;
-                } else {
-                    // Straight Flush.
-                    type = Hand.STRAIGHT_FLUSH;
-                }
+                type = straightRank == Card.Kind.ACE.ordinal() ? Hand.ROYAL_FLUSH : Hand.STRAIGHT_FLUSH;
                 return true;
             } else if (wheelingAce && inStraight >= 4 && inFlush >= 4) {
                 // Steel Wheel (Straight Flush with wheeling Ace).
@@ -335,9 +329,9 @@ public class HandEvaluator {
             } else {
                 return false;
             }
-        } else {
-            return false;
         }
+
+        return false;
     }
 
 }
